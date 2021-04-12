@@ -31,9 +31,7 @@ export class Statement {
   description: string;
 
   //@Column('decimal', { precision: 5, scale: 2 })
-  @Column('decimal', {
-    precision: 5, 
-    scale: 2,
+  @Column('decimal', { precision: 5, scale: 2,
     transformer: {
       to(value) {
         return value;
