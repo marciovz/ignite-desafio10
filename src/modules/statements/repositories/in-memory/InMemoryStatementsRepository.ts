@@ -1,8 +1,15 @@
-import { Statement } from "../../entities/Statement";
-import { ICreateStatementDTO } from "../../useCases/createStatement/ICreateStatementDTO";
+import { OperationType, Statement } from "../../entities/Statement";
 import { IGetBalanceDTO } from "../../useCases/getBalance/IGetBalanceDTO";
 import { IGetStatementOperationDTO } from "../../useCases/getStatementOperation/IGetStatementOperationDTO";
 import { IStatementsRepository } from "../IStatementsRepository";
+
+interface ICreateStatementDTO {
+  user_id: string;
+  user_receiver_id?: string;
+  type: OperationType;
+  amount: number;
+  description: string;
+}
 
 export class InMemoryStatementsRepository implements IStatementsRepository {
   private statements: Statement[] = [];
